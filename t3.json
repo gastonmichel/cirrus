@@ -1,0 +1,32 @@
+{
+  "$schema": "https://t3.codes/schema/t3.json",
+  "iconPath": "assets/icon.svg",
+  "scripts": [
+    {
+      "name": "Install Cirrus",
+      "command": "xcrun cc --version >/dev/null 2>&1 || export DEVELOPER_DIR=/Library/Developer/CommandLineTools; cargo xtask install",
+      "icon": "play"
+    },
+    {
+      "name": "Run (dev)",
+      "command": "xcrun cc --version >/dev/null 2>&1 || export DEVELOPER_DIR=/Library/Developer/CommandLineTools; cargo run -p cirrus",
+      "icon": "debug"
+    },
+    {
+      "name": "Test",
+      "command": "xcrun cc --version >/dev/null 2>&1 || export DEVELOPER_DIR=/Library/Developer/CommandLineTools; cargo test --workspace",
+      "icon": "test"
+    },
+    {
+      "name": "Lint",
+      "command": "xcrun cc --version >/dev/null 2>&1 || export DEVELOPER_DIR=/Library/Developer/CommandLineTools; cargo clippy --workspace --all-targets",
+      "icon": "lint"
+    },
+    {
+      "name": "Fetch dependencies",
+      "command": "cargo fetch",
+      "icon": "configure",
+      "runOnWorktreeCreate": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[package]
+name = "cirrus"
+edition.workspace = true
+version.workspace = true
+license.workspace = true
+
+[dependencies]
+cirrus-core = { path = "../core" }
+anyhow.workspace = true
+tokio.workspace = true
+log.workspace = true
+
+gpui-kit = { version = "0.9", features = ["tree-sitter-sql"] }

@@ -1,0 +1,20 @@
+[workspace]
+resolver = "2"
+members = ["crates/core", "crates/app", "xtask"]
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/gastonmichel/cirrus"
+
+[workspace.dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "net", "sync", "time", "macros", "process", "io-util"] }
+log = "0.4"
+
+# Optimise dependencies even in dev builds: RSA key generation and GPUI rendering are slow unoptimised.
+[profile.dev.package."*"]
+opt-level = 2
